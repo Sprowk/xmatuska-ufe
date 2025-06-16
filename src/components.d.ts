@@ -15,6 +15,8 @@ export namespace Components {
         "basePath": string;
     }
     interface XmatuskaAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface XmatuskaAmbulanceWlList {
@@ -87,6 +89,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface XmatuskaAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: XmatuskaAmbulanceWlEditorCustomEvent<string>) => void;
     }

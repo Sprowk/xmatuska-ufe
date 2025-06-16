@@ -56,6 +56,7 @@ export class XmatuskaAmbulanceWlApp {
       <Host>
         { element === "editor"
         ? <xmatuska-ambulance-wl-editor entry-id={entryId}
+          ambulance-id={this.ambulanceId} api-base={this.apiBase}
           oneditor-closed={ () => navigate("./list")}
         ></xmatuska-ambulance-wl-editor>
         : <xmatuska-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}

@@ -24,4 +24,5 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+.openapi.json
 repomix-output.xml

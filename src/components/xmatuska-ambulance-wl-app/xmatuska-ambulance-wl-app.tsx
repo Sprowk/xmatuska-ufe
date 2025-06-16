@@ -14,6 +14,8 @@ export class XmatuskaAmbulanceWlApp {
   @State() private relativePath = "";
 
   @Prop() basePath: string="";
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
 
   componentWillLoad() {
     const baseUri = new URL(this.basePath, document.baseURI || "/").pathname;
@@ -54,13 +56,12 @@ export class XmatuskaAmbulanceWlApp {
       <Host>
         { element === "editor"
         ? <xmatuska-ambulance-wl-editor entry-id={entryId}
-            oneditor-closed={ () => navigate("./list")} >
-          </xmatuska-ambulance-wl-editor>
-        : <xmatuska-ambulance-wl-list
-            onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
+          oneditor-closed={ () => navigate("./list")}
+        ></xmatuska-ambulance-wl-editor>
+        : <xmatuska-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}
+          onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
           </xmatuska-ambulance-wl-list>
         }
-
       </Host>
     );
   }

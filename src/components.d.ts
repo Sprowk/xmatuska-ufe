@@ -6,24 +6,90 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface XmatuskaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath": string;
+    }
+    interface XmatuskaAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface XmatuskaAmbulanceWlList {
     }
 }
+export interface XmatuskaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXmatuskaAmbulanceWlEditorElement;
+}
+export interface XmatuskaAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXmatuskaAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLXmatuskaAmbulanceWlAppElement extends Components.XmatuskaAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLXmatuskaAmbulanceWlAppElement: {
+        prototype: HTMLXmatuskaAmbulanceWlAppElement;
+        new (): HTMLXmatuskaAmbulanceWlAppElement;
+    };
+    interface HTMLXmatuskaAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLXmatuskaAmbulanceWlEditorElement extends Components.XmatuskaAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXmatuskaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXmatuskaAmbulanceWlEditorElement, ev: XmatuskaAmbulanceWlEditorCustomEvent<HTMLXmatuskaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXmatuskaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXmatuskaAmbulanceWlEditorElement, ev: XmatuskaAmbulanceWlEditorCustomEvent<HTMLXmatuskaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXmatuskaAmbulanceWlEditorElement: {
+        prototype: HTMLXmatuskaAmbulanceWlEditorElement;
+        new (): HTMLXmatuskaAmbulanceWlEditorElement;
+    };
+    interface HTMLXmatuskaAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLXmatuskaAmbulanceWlListElement extends Components.XmatuskaAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXmatuskaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXmatuskaAmbulanceWlListElement, ev: XmatuskaAmbulanceWlListCustomEvent<HTMLXmatuskaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXmatuskaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXmatuskaAmbulanceWlListElement, ev: XmatuskaAmbulanceWlListCustomEvent<HTMLXmatuskaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXmatuskaAmbulanceWlListElement: {
         prototype: HTMLXmatuskaAmbulanceWlListElement;
         new (): HTMLXmatuskaAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "xmatuska-ambulance-wl-app": HTMLXmatuskaAmbulanceWlAppElement;
+        "xmatuska-ambulance-wl-editor": HTMLXmatuskaAmbulanceWlEditorElement;
         "xmatuska-ambulance-wl-list": HTMLXmatuskaAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
+    interface XmatuskaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath"?: string;
+    }
+    interface XmatuskaAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: XmatuskaAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface XmatuskaAmbulanceWlList {
+        "onEntry-clicked"?: (event: XmatuskaAmbulanceWlListCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
+        "xmatuska-ambulance-wl-app": XmatuskaAmbulanceWlApp;
+        "xmatuska-ambulance-wl-editor": XmatuskaAmbulanceWlEditor;
         "xmatuska-ambulance-wl-list": XmatuskaAmbulanceWlList;
     }
 }
@@ -31,6 +97,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "xmatuska-ambulance-wl-app": LocalJSX.XmatuskaAmbulanceWlApp & JSXBase.HTMLAttributes<HTMLXmatuskaAmbulanceWlAppElement>;
+            "xmatuska-ambulance-wl-editor": LocalJSX.XmatuskaAmbulanceWlEditor & JSXBase.HTMLAttributes<HTMLXmatuskaAmbulanceWlEditorElement>;
             "xmatuska-ambulance-wl-list": LocalJSX.XmatuskaAmbulanceWlList & JSXBase.HTMLAttributes<HTMLXmatuskaAmbulanceWlListElement>;
         }
     }
